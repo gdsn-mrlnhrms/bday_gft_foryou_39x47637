@@ -371,68 +371,57 @@ h1 {
    MEMORY GRID
 ========================= */
 
+/* MEMORY CARDS */
+
 .memory-grid {
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
-
     margin-top: 45px;
+    letter-spacing: normal;
 }
-
 
 .memory-card {
+    min-width: 0;
     background: #fffafa;
-
-    padding: 12px 12px 20px;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 15px 35px rgba(90, 52, 59, 0.12);
-
+    padding: 14px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(90, 52, 59, 0.12);
     transition: transform 0.3s ease;
+    letter-spacing: normal;
 }
-
 
 .memory-card:hover {
-    transform: translateY(-8px) rotate(-1deg);
+    transform: translateY(-6px);
 }
 
-
 .memory-placeholder {
-    height: 220px;
+    min-height: 220px;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     background: #f7dfe2;
-
-    border-radius: 10px;
+    border-radius: 12px;
 
     color: #8f4d5b;
-
     font-family: Arial, sans-serif;
-
     font-size: 12px;
-
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
-
 
 .memory-card p {
-    margin-top: 15px;
+    margin-top: 18px;
+    padding: 0 5px;
 
     color: #5a343b;
-
-    font-size: 15px;
-
-    line-height: 1.5;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.65;
+    letter-spacing: normal;
+    overflow-wrap: break-word;
 }
-
 
 /* =========================
    NEXT CHAPTER BUTTON
@@ -585,510 +574,295 @@ h1 {
 
 }
 
-
 /* ==========================================
-   CHAPTER IV — THE ETHEREAL WORLD
+   CHAPTER IV — DARK ROMANCE
 ========================================== */
 
 .angel-page {
-    background: #f8f6ff;
-    color: #625b78;
+    background: #10090d;
+    color: #f5e8ec;
     overflow-x: hidden;
     position: relative;
 }
 
+/* No floating hearts on Chapter IV */
+.angel-page .hearts-container {
+    display: none;
+}
 
-/* ==========================================
-   CELESTIAL BACKGROUND
-========================================== */
-
+/* Dark burgundy atmosphere */
 .angel-world {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
 
     background:
-        /* Celestial moon */
-        radial-gradient(
-            circle at 78% 18%,
-            rgba(255, 245, 255, 0.95) 0%,
-            rgba(226, 211, 255, 0.8) 8%,
-            rgba(177, 157, 220, 0.3) 17%,
-            transparent 29%
-        ),
-
-        /* Nebula */
-        radial-gradient(
-            ellipse at 15% 40%,
-            rgba(130, 112, 180, 0.3),
-            transparent 45%
-        ),
-
-        radial-gradient(
-            ellipse at 85% 75%,
-            rgba(190, 145, 190, 0.25),
-            transparent 40%
-        ),
-
-        /* Night sky */
-        linear-gradient(
-            160deg,
-            #17182b 0%,
-            #29243e 45%,
-            #39304e 75%,
-            #211e36 100%
-        );
-}
-
-
-/* ==========================================
-   SOFT LIGHT EFFECTS
-========================================== */
-/* Celestial stars */
-
-.angel-world::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    background-image:
-        radial-gradient(2px 2px at 10% 20%, white 90%, transparent),
-        radial-gradient(2px 2px at 30% 65%, white 90%, transparent),
-        radial-gradient(1px 1px at 50% 15%, white 90%, transparent),
-        radial-gradient(2px 2px at 70% 40%, white 90%, transparent),
-        radial-gradient(1px 1px at 90% 70%, white 90%, transparent),
-        radial-gradient(2px 2px at 85% 10%, white 90%, transparent),
-        radial-gradient(1px 1px at 20% 85%, white 90%, transparent);
-
-    opacity: 0.45;
-}
-
-/* Celestial stars */
-
-.angel-world::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    background-image:
-        radial-gradient(2px 2px at 10% 20%, white 90%, transparent),
-        radial-gradient(2px 2px at 30% 65%, white 90%, transparent),
-        radial-gradient(1px 1px at 50% 15%, white 90%, transparent),
-        radial-gradient(2px 2px at 70% 40%, white 90%, transparent),
-        radial-gradient(1px 1px at 90% 70%, white 90%, transparent),
-        radial-gradient(2px 2px at 85% 10%, white 90%, transparent),
-        radial-gradient(1px 1px at 20% 85%, white 90%, transparent);
-
-    opacity: 0.45;
+        radial-gradient(ellipse at 78% 14%, rgba(125, 43, 72, 0.28), transparent 42%),
+        radial-gradient(ellipse at 12% 48%, rgba(91, 34, 57, 0.22), transparent 45%),
+        radial-gradient(ellipse at 82% 82%, rgba(76, 29, 49, 0.20), transparent 42%),
+        linear-gradient(150deg, #10090d 0%, #1b0e15 45%, #24111a 75%, #120a0f 100%);
 }
 
 .angel-world::before {
     content: "";
-
     position: absolute;
     inset: 0;
-
     pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 50% 15%,
-            rgba(255, 255, 255, 0.9),
-            transparent 35%
-        );
-
-    opacity: 0.9;
+    z-index: 0;
+    background: radial-gradient(ellipse at 50% 18%, rgba(220, 135, 157, 0.07), transparent 48%);
 }
-
 
 .angel-world::after {
     content: "";
-
     position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    top: 2%;
-    right: -100px;
-
+    width: 450px;
+    height: 450px;
+    top: 5%;
+    right: -150px;
     border-radius: 50%;
-
-    background: radial-gradient(
-        circle,
-        rgba(230, 215, 255, 0.28),
-        rgba(180, 150, 220, 0.08) 50%,
-        transparent 72%
-    );
-
-    filter: blur(35px);
-
+    background: radial-gradient(circle, rgba(153, 66, 95, 0.16), transparent 70%);
+    filter: blur(45px);
     pointer-events: none;
-
     z-index: 0;
 }
 
-
-/* ==========================================
-   INTRODUCTION
-========================================== */
-
-.angel-intro {
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 50px 25px;
-
+/* Keep all page content above the background effects */
+.angel-intro,
+.angel-gallery,
+.angel-ending {
     position: relative;
-
     z-index: 1;
 }
 
+/* Introduction */
+.angel-intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 25px;
+}
 
 .angel-eyebrow,
 .gallery-eyebrow {
     font-family: Arial, sans-serif;
-
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    color: #aaa0c2;
-
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #d98b9a;
     margin-bottom: 30px;
 }
 
-
 .angel-intro h1 {
     font-family: Georgia, serif;
-
     font-size: clamp(48px, 8vw, 100px);
-
     font-weight: 400;
-
     line-height: 1.15;
-
     letter-spacing: -3px;
-
-    color: #756987;
-
-    text-shadow:
-        0 5px 35px rgba(255, 255, 255, 0.9);
+    color: #f5e8ec;
+    text-shadow: 0 0 35px rgba(190, 100, 130, 0.12);
 }
-
 
 .angel-divider {
     margin: 35px 0;
-
     font-size: 25px;
-
-    color: #b9a9d5;
+    color: #d98b9a;
 }
-
 
 .angel-subtitle {
     font-family: Georgia, serif;
-
     font-size: 17px;
-
     line-height: 2;
-
-    color: #958ba8;
+    color: #d9bdc6;
 }
 
-
-/* ==========================================
-   SCROLL INDICATOR
-========================================== */
-
+/* Scroll indicator */
 .scroll-hint {
     position: absolute;
-
     bottom: 45px;
-
     display: flex;
     flex-direction: column;
-
     align-items: center;
-
     gap: 12px;
 }
 
-
 .scroll-hint span {
     font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
+    font-size: 11px;
+    font-weight: 600;
     letter-spacing: 3px;
-
-    color: #aaa0bc;
+    color: #d9a5b3;
 }
-
 
 .scroll-line {
     width: 1px;
-
-    height: 45px;
-
-    background:
-        linear-gradient(
-            transparent,
-            #b9a9d5
-        );
-
-    animation: gentleDrop 2s infinite;
+    height: 50px;
+    background: linear-gradient(transparent, #d98b9a);
+    animation: angelGentleDrop 2s infinite;
 }
 
-
-@keyframes gentleDrop {
+@keyframes angelGentleDrop {
     0%, 100% {
         opacity: 0.4;
         transform: translateY(0);
     }
-
     50% {
         opacity: 1;
         transform: translateY(8px);
     }
 }
 
-
-/* ==========================================
-   PHOTO GALLERY
-========================================== */
-
+/* Gallery */
 .angel-gallery {
-    position: relative;
-
-    z-index: 1;
-
     max-width: 1100px;
-
     margin: auto;
-
     padding: 110px 35px 140px;
-
     text-align: center;
 }
-
 
 .gallery-eyebrow {
     margin-bottom: 20px;
 }
 
-
 .angel-gallery h2 {
     font-family: Georgia, serif;
-
     font-size: clamp(38px, 6vw, 65px);
-
     font-weight: 400;
-
-    color: #756987;
-
+    color: #f5e8ec;
     margin-bottom: 20px;
 }
 
-
-.gallery-description {
+.angel-gallery > .gallery-description {
+    max-width: 760px;
+    margin: 0 auto;
     font-family: Georgia, serif;
-
     font-size: 16px;
-
-    color: #a69bb8;
-
+    color: #d9bdc6;
     line-height: 1.8;
 }
 
-
-/* ==========================================
-   PHOTOGRAPH LAYOUT
-========================================== */
-
+/* Photograph layout */
 .angel-photo-grid {
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
-
     gap: 35px;
-
     margin-top: 85px;
 }
 
-
 .angel-photo {
     position: relative;
-
+    min-width: 0;
     padding: 12px;
-
-    background: rgba(255, 255, 255, 0.75);
-
-    border: 1px solid rgba(255, 255, 255, 0.9);
-
+    background: #281720;
+    border: 1px solid rgba(217, 139, 154, 0.22);
     border-radius: 5px;
-
     box-shadow:
-        0 20px 55px rgba(133, 117, 166, 0.12),
-        0 5px 15px rgba(255, 255, 255, 0.8);
-
-    transition:
-        transform 0.5s ease,
-        box-shadow 0.5s ease;
+        0 20px 55px rgba(0, 0, 0, 0.4),
+        0 5px 20px rgba(125, 49, 76, 0.12);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-
 
 .angel-photo:hover {
-    transform: translateY(-12px);
-
     box-shadow:
-        0 30px 70px rgba(133, 117, 166, 0.2);
+        0 30px 70px rgba(0, 0, 0, 0.55),
+        0 5px 25px rgba(190, 100, 130, 0.16);
 }
-
 
 .photo-one {
     transform: rotate(-3deg);
 }
 
-
 .photo-two {
     transform: translateY(-25px);
 }
-
 
 .photo-three {
     transform: rotate(3deg);
 }
 
-
 .photo-one:hover {
     transform: translateY(-12px) rotate(0deg);
 }
-
 
 .photo-two:hover {
     transform: translateY(-35px);
 }
 
-
 .photo-three:hover {
     transform: translateY(-12px) rotate(0deg);
 }
 
-
-.photo-placeholder {
-    min-height: 350px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #eeeaff,
-            #fcecf3,
-            #f7f4ff
-        );
-
-    color: #aaa0c2;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
+/* Actual photographs */
+.angel-image {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: contain;
+    object-position: center;
+    background: #1b1017;
+    border-radius: 2px;
 }
 
+/* Captions beneath photographs */
+.angel-photo .gallery-description {
+    margin-top: 18px;
+    padding: 0 5px;
+    color: #e0c3cc;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: normal;
+    text-align: center;
+}
 
-/* ==========================================
-   CLOSING MESSAGE
-========================================== */
-
+/* Closing message */
 .angel-ending {
     position: relative;
-
     z-index: 1;
-
     min-height: 75vh;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
     padding: 80px 25px;
 }
 
-
 .ending-symbol {
     font-size: 45px;
-
-    color: #b9a9d5;
-
+    color: #d98b9a;
     margin-bottom: 30px;
 }
 
-
 .angel-ending h2 {
+    max-width: 850px;
     font-family: Georgia, serif;
-
     font-size: clamp(38px, 6vw, 65px);
-
     font-weight: 400;
-
     line-height: 1.3;
-
-    color: #756987;
+    color: #f5e8ec;
 }
-
 
 .angel-ending p {
+    max-width: 750px;
     margin-top: 30px;
-
     font-family: Georgia, serif;
-
     font-size: 16px;
-
-    color: #a69bb8;
-
-    line-height: 1.8;
+    color: #d9bdc6;
+    line-height: 1.9;
 }
 
-
-/* ==========================================
-   MOBILE RESPONSIVENESS
-========================================== */
-
-@media (max-width: 768px) {
-
+/* Responsive gallery */
+@media (max-width: 900px) {
     .angel-photo-grid {
         grid-template-columns: 1fr;
-
-        max-width: 380px;
-
-        margin: 65px auto 0;
-
-        gap: 45px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 55px;
     }
 
     .photo-one,
@@ -1100,13 +874,18 @@ h1 {
     .photo-one:hover,
     .photo-two:hover,
     .photo-three:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
     }
 
-    .photo-placeholder {
-        min-height: 400px;
+    .angel-image {
+        height: auto;
+        max-height: 500px;
+        aspect-ratio: 3 / 4;
+        object-fit: contain;
     }
+}
 
+@media (max-width: 768px) {
     .angel-gallery {
         padding: 90px 25px;
     }
@@ -1115,560 +894,24 @@ h1 {
         font-size: 15px;
     }
 
-}
-
-/* Chapter IV — cleaner celestial atmosphere */
-
-.angel-page .hearts-container {
-    display: none;
-}
-
-/* Keep atmospheric effects behind content */
-
-.angel-world::before {
-    z-index: 0;
-}
-
-.angel-intro,
-.angel-gallery,
-.angel-ending {
-    position: relative;
-    z-index: 1;
-}
-
-/* Clear text contrast */
-
-.angel-eyebrow,
-.gallery-eyebrow {
-    color: #d2c5ed;
-}
-
-.angel-intro h1,
-.angel-gallery h2,
-.angel-ending h2 {
-    color: #fff9ff;
-
-    text-shadow:
-        0 2px 20px rgba(15, 12, 35, 0.35);
-}
-
-.angel-subtitle,
-.gallery-description,
-.angel-ending p {
-    color: #e4daef;
-}
-
-.scroll-hint span {
-    color: #e4daef;
-}
-
-/* ==========================================
-   CHAPTER IV — FINAL VISUAL CORRECTIONS
-========================================== */
-
-
-/* CELESTIAL BACKGROUND */
-
-.angel-world {
-    background:
-        radial-gradient(
-            circle at 80% 15%,
-            #f5eaff 0%,
-            #c9b8e8 5%,
-            rgba(157, 130, 198, 0.35) 12%,
-            transparent 23%
-        ),
-
-        radial-gradient(
-            ellipse at 15% 45%,
-            rgba(111, 91, 160, 0.35),
-            transparent 45%
-        ),
-
-        linear-gradient(
-            160deg,
-            #171529 0%,
-            #29223e 45%,
-            #39304e 75%,
-            #1d1b32 100%
-        );
-}
-
-
-/* INTRODUCTION */
-
-.angel-intro {
-    min-height: 100vh;
-    padding: 80px 25px;
-
-    justify-content: center;
-    overflow: hidden;
-}
-
-.angel-intro h1 {
-    width: 100%;
-    max-width: 950px;
-
-    font-size: clamp(42px, 6vw, 82px);
-
-    line-height: 1.2;
-    letter-spacing: -1.5px;
-
-    padding: 0 15px;
-
-    color: #fffaff;
-
-    text-shadow:
-        0 4px 25px rgba(15, 10, 35, 0.4);
-}
-
-.angel-eyebrow {
-    color: #d9c9ef;
-}
-
-.angel-subtitle {
-    color: #eee5f8;
-}
-
-.scroll-hint span {
-    color: #eee5f8;
-}
-
-
-/* GALLERY HEADING */
-
-.angel-gallery h2 {
-    color: #fffaff;
-}
-
-.gallery-eyebrow {
-    color: #d9c9ef;
-}
-
-.gallery-description {
-    color: #e5d9f1;
-}
-
-
-/* PHOTOGRAPH FRAMES */
-
-.angel-photo {
-    background: #fffaff;
-
-    border: 1px solid rgba(255, 255, 255, 0.95);
-
-    padding: 12px;
-
-    border-radius: 5px;
-
-    box-shadow:
-        0 20px 55px rgba(8, 5, 25, 0.3),
-        0 0 25px rgba(220, 195, 255, 0.18);
-}
-
-
-/* PHOTOGRAPH PLACEHOLDERS */
-
-.photo-placeholder {
-    background:
-        linear-gradient(
-            145deg,
-            #eee5fa,
-            #fcebf3,
-            #f4edff
-        );
-
-    color: #756487;
-
-    font-weight: 600;
-}
-
-
-/* PHOTOGRAPH CAPTIONS */
-
-.angel-photo p {
-    color: #594b68;
-
-    font-family: Georgia, serif;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
-    padding: 12px 5px 5px;
-
-    text-align: center;
-}
-
-
-/* CLOSING SECTION */
-
-.angel-ending h2 {
-    color: #fffaff;
-}
-
-.angel-ending p {
-    color: #e5d9f1;
-}
-
-.ending-symbol {
-    color: #e5c9ee;
-}
-
-/* Dark captions inside photograph frames */
-
-.angel-photo .gallery-description {
-    color: #594b68;
-
-    font-size: 15px;
-    font-weight: 500;
-
-    line-height: 1.7;
-
-    padding: 12px 5px 5px;
-
-    text-align: center;
-}
-
-
-/* Restore celestial glow around photographs */
-
-.angel-photo {
-    box-shadow:
-        0 0 18px rgba(230, 210, 255, 0.45),
-        0 0 40px rgba(210, 185, 255, 0.3),
-        0 20px 55px rgba(8, 5, 25, 0.25);
-}
-
-.angel-photo:hover {
-    box-shadow:
-        0 0 25px rgba(240, 220, 255, 0.65),
-        0 0 60px rgba(210, 185, 255, 0.4),
-        0 30px 70px rgba(8, 5, 25, 0.3);
-}
-
-/* =================================
-   CHAPTER IV — INTRO TEXT CONTRAST
-================================= */
-
-.angel-intro h1 {
-    color: #403451;
-
-    text-shadow:
-        0 2px 15px rgba(255, 255, 255, 0.4);
-}
-
-.angel-intro .angel-eyebrow {
-    color: #665477;
-}
-
-.angel-intro .angel-subtitle {
-    color: #51435f;
-
-    font-weight: 500;
-
-    text-shadow:
-        0 1px 8px rgba(255, 255, 255, 0.35);
-}
-
-.angel-intro .scroll-hint span {
-    color: #665477;
-}
-
-.angel-intro .scroll-line {
-    background: linear-gradient(
-        transparent,
-        #806a9e
-    );
-}
-
-/* Chapter IV — Gallery typography */
-
-.angel-gallery h2 {
-    color: #493653;
-    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.35);
-}
-
-.angel-gallery > .gallery-description {
-    color: #51415f;
-}
-
-.angel-photo .gallery-description {
-    color: #594b68;
-}
-
-/* =====================================
-   CHAPTER IV — ACTUAL PHOTOGRAPHS
-===================================== */
-
-.angel-image {
-    display: block;
-
-    width: 100%;
-    height: 380px;
-
-    object-fit: contain;
-    object-position: center;
-
-    background: #eee8f5;
-
-    border-radius: 2px;
-}
-
-
-/* Keep photograph frames consistent */
-
-.angel-photo {
-    min-width: 0;
-    overflow: hidden;
-}
-
-
-/* =====================================
-   RESPONSIVE PHOTOGRAPH GALLERY
-===================================== */
-
-@media (max-width: 900px) {
-
     .angel-photo-grid {
-        grid-template-columns: 1fr;
-
-        max-width: 430px;
-
-        margin-left: auto;
-        margin-right: auto;
-
+        max-width: 380px;
+        margin-top: 65px;
         gap: 45px;
     }
+}
 
-    .angel-image {
-        height: auto;
-        max-height: 500px;
-
-        aspect-ratio: 3 / 4;
-
-        object-fit: contain;
+@media (max-width: 480px) {
+    .angel-intro {
+        padding: 45px 20px;
     }
 
-    .photo-one,
-    .photo-two,
-    .photo-three {
-        transform: none;
+    .angel-intro h1 {
+        font-size: clamp(42px, 12vw, 60px);
+        letter-spacing: -1.5px;
     }
 
-}
-
-/* =====================================
-   CHAPTER IV — TEXT CONTRAST
-===================================== */
-
-/* All text before the photographs */
-
-.angel-intro h1,
-.angel-intro .angel-eyebrow,
-.angel-intro .angel-subtitle,
-.angel-intro .scroll-hint span,
-.angel-gallery .gallery-eyebrow,
-.angel-gallery h2,
-.angel-gallery > .gallery-description {
-    color: #40304f;
-
-    -webkit-text-stroke: 0.3px rgba(255, 250, 255, 0.8);
-
-    text-shadow:
-        0 1px 5px rgba(255, 255, 255, 0.65);
-}
-
-/* Photograph captions */
-
-.angel-photo .gallery-description {
-    color: #594b68;
-
-    -webkit-text-stroke: 0;
-
-    text-shadow: none;
-}
-
-/* Closing section — retain light typography */
-
-.angel-ending h2,
-.angel-ending p {
-    color: #fffaff;
-
-    -webkit-text-stroke: 0.3px rgba(75, 55, 95, 0.5);
-
-    text-shadow:
-        0 2px 8px rgba(35, 22, 55, 0.5);
-}
-
-/* =====================================
-   CHAPTER IV — CLEAN TYPOGRAPHY
-===================================== */
-
-/* Introduction */
-
-.angel-intro h1 {
-    color: #40304f !important;
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-}
-
-.angel-intro .angel-eyebrow {
-    color: #655477 !important;
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-}
-
-.angel-intro .angel-subtitle {
-    color: #51415f !important;
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-    font-weight: 400;
-}
-
-.angel-intro .scroll-hint span {
-    color: #655477 !important;
-    text-shadow: none;
-}
-
-
-/* Gallery heading */
-
-.angel-gallery .gallery-eyebrow {
-    color: #655477 !important;
-    text-shadow: none;
-}
-
-.angel-gallery h2 {
-    color: #40304f !important;
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-}
-
-.angel-gallery > .gallery-description {
-    color: #51415f !important;
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-    font-weight: 400;
-}
-
-
-/* Photograph descriptions */
-
-.angel-photo .gallery-description {
-    color: #594b68 !important;
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-}
-
-
-/* Closing section — retain light typography */
-
-.angel-ending h2,
-.angel-ending p {
-    color: #fffaff !important;
-    -webkit-text-stroke: 0;
-    text-shadow: 0 2px 8px rgba(35, 22, 55, 0.45);
-}
-
-/* =====================================
-   CHAPTER IV — GALLERY LIGHT FIELD
-===================================== */
-
-.angel-gallery {
-    position: relative;
-    isolation: isolate;
-}
-
-/* Soft moonlight behind gallery heading */
-
-.angel-gallery::before {
-    content: "";
-
-    position: absolute;
-
-    top: 100px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: min(1000px, 110%);
-    height: 380px;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(248, 240, 255, 0.85) 0%,
-            rgba(231, 216, 250, 0.55) 35%,
-            rgba(215, 195, 240, 0.18) 65%,
-            transparent 100%
-        );
-
-    filter: blur(35px);
-
-    z-index: -1;
-
-    pointer-events: none;
-}
-
-/* Keep heading typography clean */
-
-.angel-gallery h2 {
-    color: #40304f;
-    text-shadow: none;
-}
-
-.angel-gallery > .gallery-description {
-    color: #51415f;
-    text-shadow: none;
-}
-
-/* =====================================
-   CHAPTER IV — SMALL TEXT REFINEMENT
-===================================== */
-
-/* A LITTLE SOMETHING ABOUT YOU */
-
-.angel-intro .angel-eyebrow {
-    color: #493653 !important;
-
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    text-shadow:
-        0 1px 3px rgba(255, 255, 255, 0.65);
-
-    margin-bottom: 35px;
-}
-
-
-/* GO ON SCROLL */
-
-.angel-intro .scroll-hint span {
-    color: #493653 !important;
-
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-
-    letter-spacing: 3px;
-
-    text-shadow:
-        0 1px 4px rgba(255, 255, 255, 0.7);
-}
-
-
-/* Scroll indicator line */
-
-.angel-intro .scroll-line {
-    width: 1px;
-    height: 50px;
-
-    background: linear-gradient(
-        transparent,
-        #79618f
-    );
+    .angel-ending {
+        padding: 65px 22px;
+    }
 }
